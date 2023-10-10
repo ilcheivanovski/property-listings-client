@@ -1,8 +1,6 @@
-import * as React from "react";
+import React from "react";
 import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import Typography from "@mui/material/Typography";
+import { PropertyCardContent } from "./PropertyCardContent";
 import { PropertyCardFooter } from "./PropertyCardFooter";
 
 interface PropertyCardProps {
@@ -30,15 +28,12 @@ export const PropertyCard = ({
 }: PropertyCardProps) => {
   return (
     <Card>
-      <CardContent>
-        <CardMedia component="img" alt="green iguana" image={photoUrl} />
-        <Typography gutterBottom variant="h5" component="div">
-          {address}
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          {suburb} {postcode}
-        </Typography>
-      </CardContent>
+      <PropertyCardContent
+        photoUrl={photoUrl}
+        address={address}
+        suburb={suburb}
+        postcode={postcode}
+      />
       <PropertyCardFooter
         price={price}
         bedrooms={bedrooms}

@@ -33,11 +33,7 @@ export const Property = () => {
         display={"grid"}
         gridTemplateColumns={"repeat(auto-fill, minmax(250px, 1fr))"}
       >
-        {(isLoadingList || isSaving) && (
-          <CircularProgress
-            size={60}
-          />
-        )}
+        {(isLoadingList || isSaving) && <CircularProgress size={60} />}
         {propertyList.map((property) => (
           <Grid item key={property.id}>
             <PropertyCard

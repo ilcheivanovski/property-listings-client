@@ -1,7 +1,10 @@
+import React from "react";
 import { Box, CardContent, IconButton, Typography } from "@mui/material";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import BedIcon from "@mui/icons-material/Bed";
 import BathtubIcon from "@mui/icons-material/Bathtub";
+
+import styles from "./property-card.module.scss";
 
 interface PropertyCardFooterProps {
   price: number;
@@ -20,36 +23,21 @@ export const PropertyCardFooter = ({
 }: PropertyCardFooterProps) => {
   return (
     <CardContent>
-      <Box
-        style={{
-          display: "flex",
-          flexDirection: "row-reverse",
-          marginBottom: 10,
-        }}
-      >
-        <Box
-          style={{
-            display: "flex",
-            flexDirection: "row",
-          }}
-        >
+      <Box className={styles.rooms_container}>
+        <Box className={styles.bedrooms_container}>
           <BathtubIcon />
           <Typography variant="body2" color="text.secondary">
             {bathrooms}
           </Typography>
         </Box>
-        <Box style={{ display: "flex", flexDirection: "row", marginRight: 10 }}>
+        <Box className={styles.bathrooms_container}>
           <BedIcon />
           <Typography variant="body2" color="text.secondary">
             {bedrooms}
           </Typography>
         </Box>
       </Box>
-      <Box
-        display={"flex"}
-        flexDirection={"row"}
-        justifyContent={"space-between"}
-      >
+      <Box className={styles.actions_container}>
         <IconButton onClick={onFavoriteClick} aria-label="add to favorites">
           <FavoriteIcon color={isFavorite ? "error" : "action"} />
         </IconButton>
